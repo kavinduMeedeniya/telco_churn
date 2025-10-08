@@ -28,6 +28,9 @@ const Predictor = () => {
   const [prediction, setPrediction] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
+  // Hardcoded backend URL (your Render backend)
+  const API_BASE = 'https://telco-churn-0q8x.onrender.com';
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: parseFloat(value) || 0 });
@@ -37,11 +40,18 @@ const Predictor = () => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const response = await axios.post('/predict', { data: Object.values(formData) });
+      const payload = Object.values(formData);
+      console.log('Sending prediction request with data:', payload);  // Debug: Check array (should be 19 nums)
+      const response = await axios.post(`${API_BASE}/predict`, { data: payload });
+      console.log('Prediction response:', response.data);  // Debug: {churn, probability} or fallback
       setPrediction(response.data);
     } catch (error) {
-      console.error('Prediction error:', error);
-      setPrediction({ churn: false, probability: 0, error: 'Prediction failed. Check backend connection.' });
+      console.error('Prediction error:', error.response?.data || error.message || error);  // Debug: Full 404/500 details
+      setPrediction({ 
+        churn: false, 
+        probability: 0, 
+        error: `Prediction failed: ${error.response?.status || 'Unknown error'}. Check backend models loaded.` 
+      });
     } finally {
       setIsLoading(false);
     }
