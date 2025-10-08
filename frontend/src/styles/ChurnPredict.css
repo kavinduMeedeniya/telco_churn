@@ -1,0 +1,204 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.churn-predict {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  background: #ffffff;
+  color: #1a1a1a;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 80px 40px 20px;
+  position: relative;
+}
+
+.hero-title {
+  font-size: 5rem;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.churn-predict-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.hero-title .light {
+  color: #AD49E1;
+}
+
+/* Content Section */
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
+.section-subtitle {
+  color: #666;
+  margin-bottom: 60px;
+  font-size: 1rem;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.card {
+  background: rgb(232, 232, 232);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.card.dark {
+  background: #2E073F;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.badge {
+  display: inline-block;
+  background: #7A1CAC;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.card p {
+  color: #646464;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.card.dark p {
+  color: #d9d9d9;
+}
+
+.stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.stat {
+  flex: 1;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.stat-value {
+  font-size: 1.8rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.chart-mini {
+  width: 100%;
+  height: 80px;
+  margin: 20px 0;
+  position: relative;
+}
+
+.chart-line {
+  stroke: #AD49E1;
+  stroke-width: 2;
+  fill: none;
+}
+
+.percentage-badge {
+  background: #2E073F;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.big-stat {
+  font-size: 6rem;
+  font-weight: 400;
+  margin: 20px 0;
+}
+
+.stats-section .label {
+  font-size: 1.2rem;
+  color: #666;
+  margin-right: 20px;
+}
+
+.stats-section p {
+  color: #666;
+  max-width: 600px;
+  margin: 20px auto 0;
+  line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .hero-title {
+    font-size: 3.5rem;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+
+  .stats {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .big-stat {
+    font-size: 4rem;
+  }
+
+  .content {
+    padding: 20px;
+  }
+
+  .card {
+    padding: 30px 20px;
+  }
+}
