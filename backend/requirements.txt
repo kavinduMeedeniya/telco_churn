@@ -1,8 +1,6 @@
 Flask==3.0.3
-scikit-learn==1.5.1
+gunicorn==22.0.0
 pandas==2.2.2
-numpy==1.26.4
-imbalanced-learn==0.12.3
+scikit-learn==1.5.1
+numpy==2.1.0
 joblib==1.4.2
-flask-cors==4.0.1
-setuptools>=70.0.0
