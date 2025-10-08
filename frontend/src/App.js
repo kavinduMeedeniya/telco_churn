@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-// import Dashboard from './components/Dashboard';  // Uncomment if using
+//import Dashboard from './components/Dashboard';
 import Predictor from './components/Predictor';
 import './styles/App.css';
 import ChurnPredict from './components/ChurnPredict';
 import ChurnPredictCaseStudy from './components/ChurnPredictCaseStudy';
 
+const API_BASE = 'https://telco-churn-0q8x.onrender.com';
+
 function App() {
   const [exploreData, setExploreData] = useState(null);
   const [metrics, setMetrics] = useState(null);
   const [loading, setLoading] = useState(true);
-
-  // Hardcoded backend URL (your Render backend)
-  const API_BASE = 'https://telco-churn-0q8x.onrender.com';
 
   useEffect(() => {
     fetchExplore();
@@ -31,7 +30,7 @@ function App() {
   const fetchMetrics = async () => {
     try {
       const response = await axios.post(`${API_BASE}/train`);
-      setMetrics(response.data.metrics);
+      setMetrics(response.data.metrics);  // Fixed: Extract 'metrics' from response.data
       setLoading(false);
     } catch (error) {
       console.error('Error training models:', error);
@@ -45,12 +44,10 @@ function App() {
   return (
     <div className="App">
       <main>
-        {/* Dashboard for exploreData & metrics viz—uncomment if ready */}
-        {/* <Dashboard exploreData={exploreData} metrics={metrics} /> */}
 
-        <ChurnPredict exploreData={exploreData} />  {/* Pass if component uses it */}
+        <ChurnPredict />
         
-        <Predictor metrics={metrics} />  {/* Pass if component uses it */}
+        <Predictor />
 
         <ChurnPredictCaseStudy />
       </main>
@@ -59,3 +56,5 @@ function App() {
 }
 
 export default App;
+
+//<Dashboard exploreData={exploreData} metrics={metrics} />
